@@ -1,0 +1,21 @@
+app.get('/api/medicine_time/', function (req, res) {
+    res.writeHead(200, {
+        'Content-Type': 'text/plain'
+        // 'Content-Length': retext.length
+    })
+    var mm = req.url;
+    if (mm !== '?/a = 1') {
+        console.log("sucesswifi")
+        fs.readFile('../os/medicine/medicine.json', (err, data) => {
+            if (err) {
+                res.end('#nono')
+                throw err;
+            } else
+                console.log('sucessfile')
+                res.end(`#${data}`)
+        })
+    } else {
+        console.log('nosucess')
+        res.end('#nono');
+    }
+})
